@@ -8,22 +8,29 @@ public class Main {
         boolean correct = false;
         int randomnum = (int)(10.0*Math.random());
         Scanner scan = new Scanner(System.in);
-        //System.out.println(randomnum);
 
-        while (correct == false);
+        while (correct = false);
         {
             int number = scan.nextInt();
+
+
             if (number != randomnum) {
                 System.out.println("wrong");
+                 number = scan.nextInt();
+
             }
+
             if (number == randomnum)
             {
-                correct =true;
+                correct = true;
+                System.out.println("correct");
+
             }
+
         }
-        if (correct ==true)
+        if (correct == true)
         {
-            System.out.println("wrong");
+            System.out.println("correct");
 
         }
     }
