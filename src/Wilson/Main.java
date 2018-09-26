@@ -8,6 +8,7 @@ public class Main {
         boolean correct = false;
         int randomnum = (int) (9.0 * Math.random()+1);
         Scanner scan = new Scanner(System.in);
+        System.out.println("guess a number");
 
         int number =0;
 
