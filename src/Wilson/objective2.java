@@ -1,5 +1,6 @@
 package Wilson;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class objective2 {
@@ -15,12 +16,22 @@ public class objective2 {
         String name = scan.nextLine();
 
         System.out.println("is your number " + number +", " + name +"?");
+        String str = "";
 
 
         while (correct == false) {
-            String str = scan.nextLine();
+            try {
+                 str = scan.nextLine();
+            }
+            catch (IllegalStateException e)
+            {
+
+                System.out.println("");
+                scan.close();
+            }
 
             if (str.equals("correct")) {
+
                 System.out.println("WE GOT A WINNER!");
                 System.out.println("It took you "+guesses + " tries!");
 
@@ -36,12 +47,10 @@ public class objective2 {
 
                 }
                 guesses++;
-                System.out.println(min);
-                System.out.println(max);
 
-                // number = (int) (Math.random() * (100 - number) + 1) + number;
                 System.out.println("is your number " + number +", " + name +"?");
             }
+
 
             if (str.equals("lower")) {
                 max = number-1;
@@ -51,9 +60,7 @@ public class objective2 {
                      number = (int) (Math.random()*(max - min))+min;
                  }
                  guesses++;
-                System.out.println(min);
 
-                System.out.println(max);
 
                 System.out.println("is your number" + number +", " + name +"?");
 
