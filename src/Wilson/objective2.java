@@ -3,7 +3,7 @@ package Wilson;
 import java.util.Scanner;
 
 public class objective2 {
-    //looks for the average of min and max.
+    //looks for the average of min and max. ->Binary guessing
     public static void main(String[] args) {
 
 
