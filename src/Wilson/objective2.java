@@ -1,72 +1,105 @@
 package Wilson;
 
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class objective2 {
-
+    //looks for the average of min and max.
     public static void main(String[] args) {
+
+
+
         boolean correct = false;
-        int min = 1;
-        int max = 100;
-        int guesses = 0;
-        int number = (int) (max * Math.random()+1);
         Scanner scan = new Scanner(System.in);
-        System.out.println("What is your name?");
-        String name = scan.nextLine();
+        System.out.println("Would you like to play game 1 or 2");
+        int gamenumber=scan.nextInt();
 
-        System.out.println("is your number " + number +", " + name +"?");
-        String str = "";
+        if(gamenumber ==1 ) {
+            int randomnum = (int) (9.0 * Math.random() + 1);
+
+            System.out.println("guess a number");
+
+            int number = 0;
 
 
-        while (correct == false) {
-            try {
-                 str = scan.nextLine();
-            }
-            catch (IllegalStateException e)
-            {
+            while (number != randomnum) {
+                number = scan.nextInt();
 
-                System.out.println("");
-                scan.close();
-            }
 
-            if (str.equals("correct")) {
-
-                System.out.println("WE GOT A WINNER!");
-                System.out.println("It took you "+guesses + " tries!");
-
-                correct = true;
-            }
-
-            if (str.equals("higher")) {
-                min = number + 1;
-                 number = (int) (Math.random()*(max - min))+min;
-                if (number<= min||number>= max )
-                {
-                    number = (int) (Math.random()*(max - min))+min;
+                if (number != randomnum) {
+                    System.out.println("wrong");
 
                 }
-                guesses++;
 
-                System.out.println("is your number " + number +", " + name +"?");
+                if (number == randomnum) {
+                    correct = true;
+                    System.out.println("correct");
+
+                }
             }
+        }
 
 
-            if (str.equals("lower")) {
-                max = number-1;
-                 number = (int) (Math.random()*(max - min))+min;
-                 if (number<= min||number>= max )
-                 {
-                     number = (int) (Math.random()*(max - min))+min;
-                 }
-                 guesses++;
+
+        if (gamenumber==2) {
+            boolean correct2 = false;
+            int min = 1;
+            int max = 100;
+            int guesses = 0;
+            int number = (int) (max * Math.random());
+            Scanner scan2 = new Scanner(System.in);
+            System.out.println("What is your name?");
+            String name = scan2.nextLine();
+
+            System.out.println("is your number " + number + ", " + name + "?");
+            String str = "";
 
 
-                System.out.println("is your number" + number +", " + name +"?");
+            while (correct2 == false) {
+                try {
+                    str = scan.nextLine();
+                } catch (IllegalStateException e) {
 
+                    System.out.println("");
+                    scan2.close();
+                }
+
+                if (str.equals("correct")) {
+
+                    System.out.println("WE GOT A WINNER!");
+                    System.out.println("It took you " + guesses + " tries!");
+
+                    correct2 = true;
+                }
+
+                if (str.equals("higher")) {
+                    min = number + 1;
+                    number = (max+min)/2;
+                    if (number <= min || number >= max) {
+                        number = (max+min)/2;
+
+                    }
+
+                    guesses++;
+
+                    System.out.println("is your number " + number + ", " + name + "?");
+                }
+
+
+                if (str.equals("lower")) {
+                    max = number - 1;
+                    number = (max+min)/2;
+                    if (number <= min || number >= max) {
+                        number = (max+min)/2;
+                    }
+                    guesses++;
+
+
+                    System.out.println("is your number" + number + ", " + name + "?");
+
+
+                }
 
             }
-
         }
 
 
@@ -74,5 +107,4 @@ public class objective2 {
 
 
 }
-
 
