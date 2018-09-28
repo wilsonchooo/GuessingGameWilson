@@ -3,7 +3,7 @@ package Wilson;
 import java.util.Scanner;
 
 public class Main {
-//randomly guesses a number in the range -> Binary
+//randomly guesses a number in the range 
     public static void main(String[] args) {
 
 
